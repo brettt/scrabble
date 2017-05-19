@@ -12,14 +12,13 @@ class Scrabble
         }
   end
 
-  def score(word, hash=@point_values)
+  def score(word)
     word_total = 0
     if word.nil? || word.empty?
       return 0
     else
-      word = word.upcase
-      word.chars.each do |letter|
-        word_total += hash[letter.upcase]
+      word.upcase.chars.each do |letter|
+        word_total += @point_values[letter.upcase]
       end
     end
     return word_total
